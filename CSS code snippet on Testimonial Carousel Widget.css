@@ -1,0 +1,92 @@
+selector{
+    --radius: 8px;
+    --height: 320px;
+    --active-height: 410px;
+    --overlay: 0.75;
+}
+selector{
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-in-out;
+}
+selector.loaded{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+selector .swiper-wrapper{
+    height: var(--active-height);
+    align-items: center;
+}
+selector:not(.loaded) .swiper-wrapper{
+    transition-duration: 0s !important;
+}
+selector .swiper-slide{
+    display: flex;
+    align-items: flex-end;
+    border-radius: var(--radius);
+    height: var(--height);
+    box-shadow: 0 0 50px rgba(0,0,0,0.15);
+}
+selector.loaded .swiper-slide{
+    transition: all 0.3s ease-in-out 0.2s;
+}
+selector .swiper-slide.swiper-slide-active{
+    height: var(--active-height);
+}
+selector .swiper-slide:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(20deg, rgba(0,0,0,var(--overlay)) 0%, rgba(0,0,0,0) 100%);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+selector .elementor-testimonial__footer{
+    display: block;
+}
+selector img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+}
+selector .elementor-testimonial__cite{
+    z-index: 2;
+    position: relative;
+}
+selector .elementor-testimonial__name{
+    margin-bottom: 5px;
+}
+selector .swiper-pagination,
+selector .elementor-swiper-button{
+    display: none;
+}
+selector .swiper-container{
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px){
+selector{
+    --height: 180px;
+    --active-height: 250px;
+}
+}
+@media (max-width: 767px){
+selector{
+    --height: 80px;
+    --active-height: 105px;
+    width: 100% !important;
+    max-width: var(--container-widget-width, 300px) !important;
+}
+selector .elementor-testimonial__cite{
+    opacity: 0;
+}
+}

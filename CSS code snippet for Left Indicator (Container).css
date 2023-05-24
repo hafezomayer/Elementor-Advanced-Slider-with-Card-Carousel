@@ -1,0 +1,62 @@
+selector{
+    --dot-size: 23px;
+    --line-color: #B0B7D04D;
+    --dot-color: #B0B7D0;
+    --dot-color-active: #B0B7D0;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+}
+selector{
+    height: 80vh;
+    height: var(--min-height);
+    max-height: 80vh;
+    min-height: 0 !important;
+}
+selector .dot{
+    height: var(--dot-size);
+    width: var(--dot-size);
+    background: var(--dot-color);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: scale(0.3);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+selector .dot-number{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+selector .dot.active{
+    transform: scale(1);
+    background: var(--dot-color-active);
+}
+selector .dot.active .dot-number{
+    opacity: 1;
+}
+selector:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: calc(100% - 20px);
+    max-height: 90vh;
+    width: 1px;
+    background: var(--line-color);
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+@media (max-width: 767px){
+selector{
+    transform: translateX(-50%);
+    flex-wrap: nowrap !important;
+}
+selector:before {
+    width: calc(100% - 20px);
+    height: 1px;
+
+}
+}

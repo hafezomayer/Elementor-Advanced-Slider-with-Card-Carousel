@@ -1,0 +1,57 @@
+selector{
+    --speed: 0.8s;
+    --gap: 40px;
+}
+selector{
+    transition: all 0.3s ease-in-out;
+    height: var(--h);
+    --height: calc(var(--h) + var(--gap));
+}
+selector .elementor-widget{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+selector .elementor-widget .elementor-widget-container{
+    transform: translateY(calc(-10 * var(--height)));
+}
+selector .elementor-widget.prev .elementor-widget-container{
+    animation: prev var(--speed) ease-in-out;
+    transform: translateY(calc(-1 * var(--height)));
+}
+selector .elementor-widget.next .elementor-widget-container{
+    animation: next var(--speed) ease-in-out;
+    transform: translateY(var(--height));
+}
+selector .elementor-widget.currentUp,
+selector .elementor-widget.currentDown{
+    z-index: 1;
+}
+selector .elementor-widget.currentUp .elementor-widget-container{
+    animation: currentUp var(--speed) ease-in-out;
+    transform: translateY(0);
+}
+selector .elementor-widget.currentDown .elementor-widget-container{
+    animation: currentDown var(--speed) ease-in-out;
+    transform: translateY(0);
+}
+
+@keyframes prev {
+  0%   {transform: translateY(0);}
+  100%   {transform: translateY(calc(-1 * var(--height)));}
+}
+
+@keyframes next {
+  0%   {transform: translateY(0);}
+  100%   {transform: translateY(var(--height));}
+}
+
+@keyframes currentUp {
+  0%   {transform: translateY(var(--height));}
+  100%   {transform: translateY(0);}
+}
+
+@keyframes currentDown {
+  0%   {transform: translateY(calc(-1 * var(--height)));}
+  100%   {transform: translateY(0);}
+}

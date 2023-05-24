@@ -1,0 +1,12 @@
+@media (max-width: 1750px) and (min-width: 1381px){
+    selector{
+        padding-left: 8%;
+        padding-right: 12%;
+    }
+    }
+    @media (max-width: 1380px) and (min-width: 768px){
+    selector{
+        padding-left: 0.5%;
+        padding-right: 5.5%;
+    }
+    }
